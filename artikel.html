@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Artikel & Blog - Jayamandala</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Jayamandala.</a>
+        <div class="nav-links">
+            <a href="index.html">Beranda</a>
+            <a href="tentang.html">Tentang Saya</a>
+            <a href="artikel.html">Artikel & Blog</a>
+            <a href="kontak.html">Kontak</a>
+        </div>
+    </nav>
+    <main class="container">
+        <h1 class="section-title">Semua Artikel</h1>
+        <div class="grid" id="all-posts"></div>
+    </main>
+    <footer><p>&copy; 2026 Jayamandala.</p></footer>
+
+    <script src="data.js"></script>
+    <script>
+        const allContainer = document.getElementById('all-posts');
+        articles.forEach(article => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <h3>${article.title}</h3>
+                <p>${article.content.substring(0, 100)}...</p>
+                <a href="baca.html?id=${article.id}" class="read-more">Baca selengkapnya &rarr;</a>
+            `;
+            allContainer.appendChild(card);
+        });
+    </script>
+</body>
+</html>

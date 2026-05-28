@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Baca Artikel - Jayamandala</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Jayamandala.</a>
+        <div class="nav-links">
+            <a href="index.html">Beranda</a>
+            <a href="tentang.html">Tentang Saya</a>
+            <a href="artikel.html">Artikel & Blog</a>
+            <a href="kontak.html">Kontak</a>
+        </div>
+    </nav>
+    <main class="container">
+        <div class="article-content" id="single-post">
+            <!-- Konten artikel akan dimuat di sini -->
+        </div>
+    </main>
+    <footer><p>&copy; 2026 Jayamandala.</p></footer>
+
+    <script src="data.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = parseInt(urlParams.get('id'));
+        const postContainer = document.getElementById('single-post');
+        
+        const article = articles.find(a => a.id === articleId);
+        
+        if (article) {
+            document.title = article.title + " - Jayamandala";
+            postContainer.innerHTML = `
+                <h1>${article.title}</h1>
+                <div class="meta">Ditulis oleh Jayamandala | Topik: Web Development</div>
+                <div class="content">
+                    ${article.content.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+                </div>
+                <br><br>
+                <a href="artikel.html" class="btn">&larr; Kembali ke Daftar Artikel</a>
+            `;
+        } else {
+            postContainer.innerHTML = `<h1>Artikel tidak ditemukan</h1><p>Maaf, artikel yang Anda cari tidak ada.</p><a href="artikel.html">Kembali</a>`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jayamandala | Web & Mobile Developer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Jayamandala.</a>
+        <div class="nav-links">
+            <a href="index.html">Beranda</a>
+            <a href="tentang.html">Tentang Saya</a>
+            <a href="artikel.html">Artikel & Blog</a>
+            <a href="kontak.html">Kontak</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div>
+            <h1>Halo, Saya Jayamandala</h1>
+            <p>Seorang Web & Mobile Developer yang fokus membangun aplikasi fungsional, responsif, dan solusi sistem multi-role yang solid.</p>
+            <a href="artikel.html" class="btn">Baca Tulisan Saya</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 class="section-title">Artikel Terbaru</h2>
+        <div class="grid" id="latest-posts">
+            <!-- Artikel akan dimuat di sini oleh JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Jayamandala. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script src="data.js"></script>
+    <script>
+        // Render 3 artikel terbaru di halaman depan
+        const latestContainer = document.getElementById('latest-posts');
+        const latestArticles = articles.slice(0, 3);
+        
+        latestArticles.forEach(article => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <h3>${article.title}</h3>
+                <p>${article.content.substring(0, 120)}...</p>
+                <a href="baca.html?id=${article.id}" class="read-more">Baca selengkapnya &rarr;</a>
+            `;
+            latestContainer.appendChild(card);
+        });
+    </script>
+</body>
+</html>

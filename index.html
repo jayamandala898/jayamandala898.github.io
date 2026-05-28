@@ -3,44 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="google-adsense-account" content="ca-pub-1860319280262032">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1860319280262032"
-     crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1860319280262032" crossorigin="anonymous"></script>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jayamandala | Web & Mobile Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <nav>
-        <a href="index.html" class="logo">Jayamandala.</a>
-        <div class="nav-links">
-            <a href="index.html">Beranda</a>
-            <a href="tentang.html">Tentang Saya</a>
-            <a href="artikel.html">Artikel & Blog</a>
-            <a href="kontak.html">Kontak</a>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Jayamandala<span>.</span></a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Beranda</a>
+                <a href="tentang.html">Tentang Saya</a>
+                <a href="artikel.html">Artikel & Blog</a>
+                <a href="kontak.html">Kontak</a>
+            </div>
         </div>
     </nav>
 
     <header class="hero">
-        <div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="badge">Available for Projects</span>
             <h1>Halo, Saya Jayamandala</h1>
-            <p>Seorang Web & Mobile Developer yang fokus membangun aplikasi fungsional, responsif, dan solusi sistem multi-role yang solid.</p>
-            <a href="artikel.html" class="btn">Baca Tulisan Saya</a>
+            <p>Seorang Web & Mobile Developer yang fokus membangun aplikasi fungsional, responsif, dan solusi sistem yang solid.</p>
+            <div class="hero-action">
+                <a href="artikel.html" class="btn btn-primary">Baca Tulisan Saya</a>
+                <a href="kontak.html" class="btn btn-secondary">Hubungi Saya</a>
+            </div>
         </div>
     </header>
 
     <main class="container">
         <h2 class="section-title">Artikel Terbaru</h2>
         <div class="grid" id="latest-posts">
-            <!-- Artikel akan dimuat di sini oleh JavaScript -->
-        </div>
+            </div>
     </main>
 
     <footer>
         <p>&copy; 2026 Jayamandala. Hak Cipta Dilindungi.</p>
     </footer>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1860319280262032" crossorigin="anonymous"></script>
+
     <script src="data.js"></script>
     <script>
         // Render 3 artikel terbaru di halaman depan
@@ -51,9 +59,11 @@
             const card = document.createElement('div');
             card.className = 'card';
             card.innerHTML = `
-                <h3>${article.title}</h3>
-                <p>${article.content.substring(0, 120)}...</p>
-                <a href="baca.html?id=${article.id}" class="read-more">Baca selengkapnya &rarr;</a>
+                <div class="card-body">
+                    <h3>${article.title}</h3>
+                    <p>${article.content.substring(0, 120)}...</p>
+                    <a href="baca.html?id=${article.id}" class="read-more">Baca selengkapnya &rarr;</a>
+                </div>
             `;
             latestContainer.appendChild(card);
         });
